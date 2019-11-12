@@ -106,12 +106,14 @@ function WConversiServer(opt = {}) {
     //server
     let server
     if (opt.serverHapi) {
+        console.log('a1 old')
 
         //use serverHapi
         server = opt.serverHapi
 
     }
     else {
+        console.log('a1 create')
 
         //create server
         server = Hapi.server({
@@ -374,30 +376,26 @@ function WConversiServer(opt = {}) {
     }
 
 
-    async function createServer() {
+    async function runRestfulServer() {
 
-        if (!opt.serverHapi) {
+        //register inert
+        await server.register(Inert)
 
-            //register inert
-            await server.register(Inert)
+        //api
+        let api = [
+            {
+                method: 'GET',
+                path: '/{file*}',
+                handler: {
+                    directory: {
+                        path: './'
+                    }
+                },
+            }
+        ]
 
-            //api
-            let api = [
-                {
-                    method: 'GET',
-                    path: '/{file*}',
-                    handler: {
-                        directory: {
-                            path: './'
-                        }
-                    },
-                }
-            ]
-
-            //route
-            server.route(api)
-
-        }
+        //route
+        server.route(api)
 
         //start
         await server.start()
@@ -405,8 +403,13 @@ function WConversiServer(opt = {}) {
         console.log(`Server running at: ${server.info.uri}`)
 
     }
-    createServer()
 
+    if (opt.serverHapi) {
+        //none
+    }
+    else {
+        runRestfulServer()
+    }
 
     return ee
 }
