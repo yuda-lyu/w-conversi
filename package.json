@@ -1,6 +1,6 @@
 {
   "name": "w-conversi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An operator for socket.io in nodejs and browser.",
   "main": "dist/w-conversi-server.umd.js",
   "dependencies": {

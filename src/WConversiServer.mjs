@@ -2,7 +2,6 @@ import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert' //提供靜態檔案
 import SocketIO from 'socket.io'
 import events from 'events'
-import cloneDeep from 'lodash/cloneDeep'
 import get from 'lodash/get'
 import sendSplitData from './sendSplitData.mjs'
 import mergeSplitData from './mergeSplitData.mjs'
@@ -78,10 +77,6 @@ import mergeSplitData from './mergeSplitData.mjs'
 function WConversiServer(opt = {}) {
 
 
-    //cloneDeep
-    opt = cloneDeep(opt)
-
-
     //default
     if (!opt.port) {
         opt.port = 8080
@@ -106,14 +101,12 @@ function WConversiServer(opt = {}) {
     //server
     let server
     if (opt.serverHapi) {
-        console.log('a1 old')
 
         //use serverHapi
         server = opt.serverHapi
 
     }
     else {
-        console.log('a1 create')
 
         //create server
         server = Hapi.server({
