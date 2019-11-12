@@ -376,7 +376,7 @@ function WConversiServer(opt = {}) {
     }
 
 
-    async function runRestfulServer() {
+    async function startServer() {
 
         //register inert
         await server.register(Inert)
@@ -408,7 +408,7 @@ function WConversiServer(opt = {}) {
         //none
     }
     else {
-        runRestfulServer()
+        startServer()
     }
 
     return ee
