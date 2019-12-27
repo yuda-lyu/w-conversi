@@ -15,6 +15,7 @@ import mergeSplitData from './mergeSplitData.mjs'
  * @param {String} [opt.url='http://localhost:8080'] 輸入SocketIO伺服器網址，預設為'http://localhost:8080'
  * @param {String} [opt.token='*'] 輸入使用者認證用token，預設為'*'
  * @param {Integer} [opt.strSplitLength=1000000] 輸入傳輸封包長度整數，預設為1000000
+ * @param {Object} [opt.ioSettings={}] 輸入SocketIO初始化設定物件，預設為{}
  * @returns {Object} 回傳通訊物件，可監聽事件open、openOnce、close、error、reconn、broadcast、deliver，可使用函數execute、broadcast、deliver
  * @example
  *
@@ -102,11 +103,14 @@ function WConversiClient(opt) {
         if (!opt.strSplitLength) {
             opt.strSplitLength = 1000000
         }
+        if (!opt.ioSettings) {
+            opt.ioSettings = {}
+        }
 
 
         //socket.io-client
         try {
-            ioc = new SocketIOClient(opt.url)
+            ioc = new SocketIOClient(opt.url, opt.ioSettings)
         }
         catch (err) {
             error('create SocketIOClient catch error', err)
