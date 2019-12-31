@@ -174,7 +174,6 @@ function WConversiServer(opt = {}) {
      * SocketIO監聽客戶端變更(上下線)事件
      *
      * @memberof WConversiServer
-     * @param {Array} clients 傳入Websocket客戶端物件陣列
      * @example
      * wo.on('clientChange', function(clients) {
      *     ...
