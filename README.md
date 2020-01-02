@@ -21,7 +21,7 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 ### Using npm(ES6 module):
 > **Note:** `w-conversi-server` depends on `@hapi/hapi`, `@hapi/inert` and `socket.io`.
 
-> **Note:** `w-conversi-client` depends on `socket.io-client` and `wolfy87-eventemitter`.
+> **Note:** `w-conversi-client` depends on `socket.io-client`.
 
 ```alias
 npm i w-conversi
@@ -162,7 +162,7 @@ wo.on('broadcast', function(data) {
 
 [Necessary] Add script for w-conversi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.7/dist/w-conversi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.8/dist/w-conversi-client.umd.js"></script>
 ```
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/web.html)]

@@ -1,8 +1,8 @@
 import SocketIOClient from 'socket.io-client'
-import EventEmitter from 'wolfy87-eventemitter'
 import get from 'lodash/get'
 import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
+import Evem from 'wsemi/src/evem.mjs'
 import sendSplitData from './sendSplitData.mjs'
 import mergeSplitData from './mergeSplitData.mjs'
 
@@ -78,8 +78,8 @@ function WConversiClient(opt) {
 
 
     //ee, ev
-    let ee = new EventEmitter()
-    let ev = new EventEmitter()
+    let ee = new Evem()
+    let ev = new Evem()
 
 
     //eeEmit
