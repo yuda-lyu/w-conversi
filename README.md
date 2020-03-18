@@ -33,13 +33,6 @@ import WConversiServer from 'w-conversi/dist/w-conversi-server.umd.js'
 
 let opt = {
     port: 8080,
-    authenticate: function(token) {
-        return new Promise(function(resolve, reject) {
-            setTimeout(function() {
-                resolve(true)
-            }, 1000)
-        })
-    },
 }
 
 //new
@@ -162,7 +155,7 @@ wo.on('broadcast', function(data) {
 
 [Necessary] Add script for w-conversi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.8/dist/w-conversi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.9/dist/w-conversi-client.umd.js"></script>
 ```
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/web.html)]
@@ -177,45 +170,45 @@ let WConversiClient=window['w-conversi-client']
 let wo = new WConversiClient(opt)
 
 wo.on('open', function() {
-    logData('client web: open')
+    console.log('client web: open')
 })
 wo.on('openOnce', function() {
-    logData('client web: openOnce')
+    console.log('client web: openOnce')
 
     //execute
     wo.execute('add', { p1: 1, p2: 2 },
         function (prog) {
-            logData('client web: execute prog=', prog)
+            console.log('client web: execute prog=', prog)
         })
         .then(function(r) {
-            logData('client web: execute: add=', r)
+            console.log('client web: execute: add=', r)
         })
 
     //broadcast
     wo.broadcast('client web: broadcast hi', function (prog) {
-        logData('client web: broadcast prog=', prog)
+        console.log('client web: broadcast prog=', prog)
     })
 
     //deliver
     wo.deliver('client web: deliver: hi', function (prog) {
-        logData('client web: deliver prog=', prog)
+        console.log('client web: deliver prog=', prog)
     })
 
 })
 wo.on('close', function() {
-    logData('client web: close')
+    console.log('client web: close')
 })
 wo.on('error', function(err) {
-    logData('client web: error', err)
+    console.log('client web: error', err)
 })
 wo.on('reconn', function() {
-    logData('client web: reconn')
+    console.log('client web: reconn')
 })
 wo.on('broadcast', function(data) {
-    logData('client web: broadcast', data)
+    console.log('client web: broadcast', data)
 })
 // wo.on('deliver', function(data) { //伺服器目前無法針對client直接deliver
-//     logData('client web: deliver=', data)
+//     console.log('client web: deliver=', data)
 // })
 
 // client web: open
