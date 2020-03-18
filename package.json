@@ -1,10 +1,12 @@
 {
   "name": "w-conversi",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "An operator for socket.io in nodejs and browser.",
   "main": "dist/w-conversi-server.umd.js",
   "dependencies": {
     "lodash": "^4.17.15",
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/inert": "^5.2.2",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "wsemi": "^1.3.41"
