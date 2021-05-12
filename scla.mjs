@@ -50,3 +50,5 @@ wo.on('broadcast', function(data) {
 // wo.on('deliver', function(data) { //伺服器目前無法針對client直接deliver
 //     console.log('client nodejs[port:8080]: deliver=', data)
 // })
+
+//node --experimental-modules --es-module-specifier-resolution=node scla.mjs
