@@ -1,10 +1,13 @@
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert' //提供靜態檔案
-import SocketIO from 'socket.io'
+import { Server } from 'socket.io'
 import events from 'events'
 import get from 'lodash/get'
 import sendSplitData from './sendSplitData.mjs'
 import mergeSplitData from './mergeSplitData.mjs'
+
+
+let SocketIO = Server
 
 
 /**
@@ -115,7 +118,7 @@ function WConversiServer(opt = {}) {
     //io
     let io = null
     try {
-        io = SocketIO(server.listener)
+        io = new SocketIO(server.listener)
     }
     catch (err) {
         error('create SocketIO catch error', err)
