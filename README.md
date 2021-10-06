@@ -3,7 +3,6 @@ An operator for socket.io in nodejs and browser.
 
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-conversi.svg?style=flat)](https://npmjs.org/package/w-conversi) 
-[![Build Status](https://travis-ci.org/yuda-lyu/w-conversi.svg?branch=master)](https://travis-ci.org/yuda-lyu/w-conversi) 
 [![license](https://img.shields.io/npm/l/w-conversi.svg?style=flat)](https://npmjs.org/package/w-conversi) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-conversi/master/dist/w-conversi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-conversi)
 [![npm download](https://img.shields.io/npm/dt/w-conversi.svg)](https://npmjs.org/package/w-conversi) 
