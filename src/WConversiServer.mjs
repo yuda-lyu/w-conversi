@@ -3,6 +3,9 @@ import Inert from '@hapi/inert' //提供靜態檔案
 import { Server } from 'socket.io'
 import events from 'events'
 import get from 'lodash/get'
+import ispint from 'wsemi/src/ispint.mjs'
+import isestr from 'wsemi/src/isestr.mjs'
+import cint from 'wsemi/src/cint.mjs'
 import sendSplitData from './sendSplitData.mjs'
 import mergeSplitData from './mergeSplitData.mjs'
 
@@ -16,6 +19,7 @@ let SocketIO = Server
  * @class
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Integer} [opt.port=8080] 輸入SocketIO伺服器所在port，預設8080
+ * @param {String} [opt.pathPolling=undefined] 輸入socket.io伺服器無法使用WebSocket連線自動降級成為輪詢(polling)所在子目錄字串，預設undefined，代表使用'/socket.io'
  * @param {Integer} [opt.strSplitLength=1000000] 輸入傳輸封包長度整數，預設為1000000
  * @returns {Object} 回傳通訊物件，可監聽事件open、error、clientChange、execute、broadcast、deliver，可使用函數broadcast
  * @example
@@ -72,12 +76,22 @@ let SocketIO = Server
 function WConversiServer(opt = {}) {
 
 
-    //default
-    if (!opt.port) {
-        opt.port = 8080
+    //port
+    let port = get(opt, 'port')
+    if (!ispint(port)) {
+        port = 8080
     }
-    if (!opt.strSplitLength) {
-        opt.strSplitLength = 1000000
+    port = cint(port)
+
+
+    //pathPolling
+    let pathPolling = get(opt, 'pathPolling')
+
+
+    //strSplitLength
+    let strSplitLength = get(opt, 'strSplitLength')
+    if (!ispint(strSplitLength)) {
+        strSplitLength = 1000000
     }
 
 
@@ -117,8 +131,12 @@ function WConversiServer(opt = {}) {
 
     //io
     let io = null
+    let ioOpt = {}
+    if (isestr(pathPolling)) {
+        ioOpt = { path: pathPolling }
+    }
     try {
-        io = new SocketIO(server.listener)
+        io = new SocketIO(server.listener, ioOpt)
     }
     catch (err) {
         error('create SocketIO catch error', err)
@@ -195,7 +213,7 @@ function WConversiServer(opt = {}) {
             //console.log('sendData', data)
             try {
                 //sendSplitData
-                sendSplitData(client, opt.strSplitLength, data, cbProgress, function (err) {
+                sendSplitData(client, strSplitLength, data, cbProgress, function (err) {
                     error('can not send message', err)
                 })
             }
@@ -370,15 +388,43 @@ function WConversiServer(opt = {}) {
 
         //api
         let api = [
+            // {
+            //     method: 'GET',
+            //     path: '/{file*}',
+            //     handler: {
+            //         directory: {
+            //             path: './'
+            //         }
+            //     },
+            // },
+            //預設僅提供測試之3檔案
             {
                 method: 'GET',
-                path: '/{file*}',
+                path: '/web.html',
                 handler: {
-                    directory: {
-                        path: './'
-                    }
+                    file: {
+                        path: './web.html'
+                    },
                 },
-            }
+            },
+            {
+                method: 'GET',
+                path: '/dist/w-conversi-client.umd.js',
+                handler: {
+                    file: {
+                        path: './dist/w-conversi-client.umd.js'
+                    },
+                },
+            },
+            {
+                method: 'GET',
+                path: '/dist/w-conversi-client.umd.js.map',
+                handler: {
+                    file: {
+                        path: './dist/w-conversi-client.umd.js.map'
+                    },
+                },
+            },
         ]
 
         //route
