@@ -154,7 +154,7 @@ wo.on('broadcast', function(data) {
 
 [Necessary] Add script for w-conversi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.15/dist/w-conversi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.16/dist/w-conversi-client.umd.js"></script>
 ```
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/web.html)]
