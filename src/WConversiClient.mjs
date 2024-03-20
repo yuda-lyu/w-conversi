@@ -1,5 +1,5 @@
 import SocketIOClient from 'socket.io-client'
-import get from 'lodash/get'
+import get from 'lodash-es/get'
 import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
 import Evem from 'wsemi/src/evem.mjs'

@@ -1,7 +1,7 @@
-import chunk from 'lodash/chunk'
-import join from 'lodash/join'
-import each from 'lodash/each'
-import isFunction from 'lodash/isFunction'
+import chunk from 'lodash-es/chunk'
+import join from 'lodash-es/join'
+import each from 'lodash-es/each'
+import isFunction from 'lodash-es/isFunction'
 import genID from 'wsemi/src/genID.mjs'
 import obj2str from 'wsemi/src/obj2str.mjs'
 

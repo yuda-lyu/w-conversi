@@ -2,7 +2,7 @@ import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert' //提供靜態檔案
 import { Server } from 'socket.io'
 import events from 'events'
-import get from 'lodash/get'
+import get from 'lodash-es/get'
 import ispint from 'wsemi/src/ispint.mjs'
 import isestr from 'wsemi/src/isestr.mjs'
 import cint from 'wsemi/src/cint.mjs'

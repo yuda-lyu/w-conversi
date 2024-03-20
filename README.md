@@ -6,6 +6,7 @@ An operator for socket.io in nodejs and browser.
 [![license](https://img.shields.io/npm/l/w-conversi.svg?style=flat)](https://npmjs.org/package/w-conversi) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-conversi/master/dist/w-conversi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-conversi)
 [![npm download](https://img.shields.io/npm/dt/w-conversi.svg)](https://npmjs.org/package/w-conversi) 
+[![npm download](https://img.shields.io/npm/dm/w-conversi.svg)](https://npmjs.org/package/w-conversi) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-conversi.svg)](https://www.jsdelivr.com/package/npm/w-conversi)
 
 ## Documentation
@@ -154,7 +155,7 @@ wo.on('broadcast', function(data) {
 
 [Necessary] Add script for w-conversi-client.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.16/dist/w-conversi-client.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.17/dist/w-conversi-client.umd.js"></script>
 ```
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/web.html)]
