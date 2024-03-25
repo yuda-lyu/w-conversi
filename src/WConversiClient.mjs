@@ -1,5 +1,5 @@
 import SocketIOClient from 'socket.io-client'
-import get from 'lodash-es/get'
+import get from 'lodash-es/get.js'
 import genPm from 'wsemi/src/genPm.mjs'
 import genID from 'wsemi/src/genID.mjs'
 import Evem from 'wsemi/src/evem.mjs'
@@ -325,9 +325,9 @@ function WConversiClient(opt) {
             //msg
             let msg = {
                 _mode: 'execute',
-                _id: _id,
-                func: func,
-                input: input,
+                _id,
+                func,
+                input,
             }
 
             //sendData
@@ -352,7 +352,7 @@ function WConversiClient(opt) {
             //msg
             let msg = {
                 _mode: 'broadcast',
-                data: data,
+                data,
             }
 
             //sendData
@@ -366,7 +366,7 @@ function WConversiClient(opt) {
             //msg
             let msg = {
                 _mode: 'deliver',
-                data: data,
+                data,
             }
 
             //sendData
