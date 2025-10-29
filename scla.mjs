@@ -51,4 +51,4 @@ wo.on('broadcast', function(data) {
 //     console.log('client nodejs[port:8080]: deliver=', data)
 // })
 
-//node --experimental-modules --es-module-specifier-resolution=node scla.mjs
+//node scla.mjs

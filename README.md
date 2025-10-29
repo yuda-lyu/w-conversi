@@ -4,7 +4,6 @@ An operator for socket.io in nodejs and browser.
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-conversi.svg?style=flat)](https://npmjs.org/package/w-conversi) 
 [![license](https://img.shields.io/npm/l/w-conversi.svg?style=flat)](https://npmjs.org/package/w-conversi) 
-[![gzip file size](http://img.badgesize.io/yuda-lyu/w-conversi/master/dist/w-conversi-server.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-conversi)
 [![npm download](https://img.shields.io/npm/dt/w-conversi.svg)](https://npmjs.org/package/w-conversi) 
 [![npm download](https://img.shields.io/npm/dm/w-conversi.svg)](https://npmjs.org/package/w-conversi) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-conversi.svg)](https://www.jsdelivr.com/package/npm/w-conversi)
@@ -18,14 +17,12 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 * `w-conversi-client`: for nodejs and browser client
 
 ## Installation
+
 ### Using npm(ES6 module):
-> **Note:** `w-conversi-server` is mainly dependent on `@hapi/hapi`, `@hapi/inert` and `socket.io`.
-
-> **Note:** `w-conversi-client` is mainly dependent on `socket.io-client`.
-
 ```alias
 npm i w-conversi
 ```
+
 #### Example for w-conversi-server:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/srv.mjs)]
 ```alias
@@ -87,6 +84,7 @@ wo.on('deliver', function(data) {
 // Server[port:8080]: broadcast client web: broadcast hi
 // Server[port:8080]: deliver client web: deliver: hi
 ```
+
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/scla.mjs)]
 ```alias
@@ -151,12 +149,12 @@ wo.on('broadcast', function(data) {
 ```
 
 ### In a browser(UMD module):
-> **Note:** `w-conversi-client` does't depend on any package.
 
-[Necessary] Add script for w-conversi-client.
+Add script for w-conversi-client.
 ```alias
 <script src="https://cdn.jsdelivr.net/npm/w-conversi@1.0.18/dist/w-conversi-client.umd.js"></script>
 ```
+
 #### Example for w-conversi-client:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-conversi/blob/master/web.html)]
 ```alias
